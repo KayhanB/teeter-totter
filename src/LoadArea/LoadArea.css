@@ -1,0 +1,13 @@
+.load-area {
+  height: 100%;
+  border: 1px solid var(--divider);
+  border-bottom: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.left,
+.right {
+  position: relative;
+  flex: 1;
+}

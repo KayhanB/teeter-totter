@@ -1,0 +1,50 @@
+.operator {
+  z-index: 9999;
+  border: 1px solid var(--divider);
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.pause-operator {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+
+.content {
+  background-color: var(--paper-bg-color);
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-paused-content {
+  background-color: transparent;
+}
+
+.title {
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+}
+
+.game-over-title {
+  color: var(--text-error);
+}
+
+.restart-button,
+.continue-button,
+.start-button {
+  width: 100px;
+  height: 80;
+}
