@@ -43,12 +43,12 @@ export const gameSlice = createSlice({
     updateLoads: (state, action) => {
       const armLength = LeverWidth / 2;
       const armAngle = action.payload.armAngle;
-      const loadAreaBottom = action.payload.loadAreaBottom;
+      const armGround = action.payload.armGround;
 
       const leftLoads = state.leftLoads.map((load, i) => {
         const loadArmLength = armLength - load.posX;
         const targetPosY =
-          loadAreaBottom -
+          armGround -
           load.height -
           loadArmLength * Math.sin(armAngle * (Math.PI / 180));
 
@@ -59,7 +59,7 @@ export const gameSlice = createSlice({
         }
         const targetPosX =
           load.posX +
-          Math.tan(armAngle * (Math.PI / 180)) / (loadAreaBottom - targetPosY);
+          Math.tan(armAngle * (Math.PI / 180)) / (armGround - targetPosY);
 
         load.posX = targetPosX;
         load.posY = targetPosY;
@@ -75,7 +75,7 @@ export const gameSlice = createSlice({
       const rightLoads = state.rightLoads.map((load, i) => {
         const loadArmLength = armLength - (armLength - load.posX - load.width);
         const targetPosY =
-          loadAreaBottom -
+          armGround -
           load.height +
           loadArmLength * Math.sin(armAngle * (Math.PI / 180));
         load.posY = targetPosY;
@@ -83,7 +83,7 @@ export const gameSlice = createSlice({
 
         const targetPosX =
           load.posX +
-          Math.tan(armAngle * (Math.PI / 180)) / (loadAreaBottom - targetPosY);
+          Math.tan(armAngle * (Math.PI / 180)) / (armGround - targetPosY);
         load.posX = targetPosX;
         return load;
       });

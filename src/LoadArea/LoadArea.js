@@ -54,7 +54,8 @@ function LoadArea({ armRef }) {
       window.dropLoadsInterval = setInterval(() => {
         dispatch(
           updateLoads({
-            loadAreaBottom: loadAreaRef.current.clientHeight,
+            armGround:
+              loadAreaRef.current.clientHeight + armRef.current.offsetHeight,
             armAngle: elementAngle(armRef.current),
           })
         );
@@ -91,7 +92,10 @@ function LoadArea({ armRef }) {
     const addLoad = () => {
       const randomLoad = generateRandomLoad();
       const initialPosX = randomInt(50, LeverWidth / 2 - 50);
-      const initialPosY = -randomLoad.height + loadAreaRef.current.clientHeight;
+      const initialPosY =
+        -randomLoad.height +
+        loadAreaRef.current.clientHeight +
+        armRef.current.offsetHeight;
       dispatch(
         addRightLoad({
           ...randomLoad,

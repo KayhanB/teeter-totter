@@ -3,6 +3,7 @@ import { LoadTypes } from "../utils/constants";
 function Load({ type, weight, color, height, width, posY, posX, rotate = 0 }) {
   const sharedStyle = {
     fontSize: height / 3.2,
+    zIndex:1,
     height,
     width,
     position: "absolute",
