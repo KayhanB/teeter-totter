@@ -111,7 +111,7 @@ function LoadArea({ armRef }) {
     ) {
       addLoad();
     }
-  }, [dispatch, gameStatus, gameSecond]);
+  }, [dispatch, gameStatus, gameSecond, armRef]);
 
   const LeftLoads = useMemo(() => {
     return leftLoads.map((load) => <Load key={load.id} {...load} />);
